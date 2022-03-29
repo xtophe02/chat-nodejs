@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="row" style="margin-bottom: 0">
+      <div
+        class="col s2 container"
+        style="height: 100vh; background-color: #363636"
+        id="sidebar"
+      ></div>
+      <div
+        class="col s10"
+        style="
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          justify-content: space-between;
+        "
+      >
+        <div id="messages" style="flex-grow: 1; overflow: auto"></div>
+
+        <div style="padding-bottom: 5rem">
+          <form id="form" style="display: flex; justify-content: space-around">
+            <input
+              type="text"
+              placeholder="Message"
+              name="message"
+              style="margin-left: 1rem; margin-right: 1rem"
+              required
+              autocomplete="off"
+            />
+
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="send"
+              style="margin-left: 1rem; margin-right: 1rem"
+            >
+              Send
+              <i class="material-icons right">send</i>
+            </button>
+
+            <button
+              id="location"
+              type="button"
+              class="waves-effect waves-light btn"
+              style="margin-left: 1rem; margin-right: 1rem"
+            >
+              Share Location
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script id="message-template" type="text/html">
+      <div>
+        {{#message}}
+        <p>
+          <span style="font-weight: bold;">{{user}}</span>&nbsp;<time
+            datetime="2018-07-07"
+            style="color: #9e9e9e ;"
+            >{{createdAt}}</time
+          ><br /><span style="font-size:1.5rem">{{message}}</span>
+        </p>
+        {{/message}} {{#url}}
+        <p>
+          <span style="font-weight: bold;">{{user}}</span>&nbsp;
+          <time datetime="2018-07-07" style="color: #9e9e9e;"
+            >{{createdAt}}</time
+          ><br />
+          <a href="{{url}}" target="__blank" style="font-size:1.5rem"
+            >My current location</a
+          >
+        </p>
+        {{/url}}
+      </div>
+    </script>
+    <script id="sidebar-template" type="text/html">
+      <h3 class="white-text">{{room}}</h3>
+      <h4 class="white-text">Users</h4>
+      <ul class="white-text">
+        {{#users}}
+        <li>{{username}}</li>
+        {{/users}}
+      </ul>
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.1.0/mustache.min.js"
+      integrity="sha512-HYiNpwSxYuji84SQbCU5m9kHEsRqwWypXgJMBtbRSumlx1iBB6QaxgEBZHSHEGM+fKyCX/3Kb5V5jeVXm0OglQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+  </body>
+</html>

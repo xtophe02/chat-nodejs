@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div class="valign-wrapper" style="height: 100vh">
+      <div class="row">
+        <form action="/chat.html" class="col s12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Join Our Chat</span>
+              <div>
+                <form>
+                  <div>
+                    <div class="input-field">
+                      <i class="material-icons prefix">person</i>
+                      <input
+                        id="icon_prefix"
+                        type="text"
+                        class="validate"
+                        required
+                        name="username"
+                      />
+                      <label for="icon_prefix">Username</label>
+                    </div>
+                    <div class="input-field">
+                      <i class="material-icons prefix">meeting_room</i>
+                      <input
+                        id="icon_telephone"
+                        type="tel"
+                        class="validate"
+                        required
+                        name="room"
+                      />
+                      <label for="icon_telephone">Room</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card-action">
+              <button
+                class="btn waves-effect waves-light"
+                type="submit"
+                style="width: 100%"
+              >
+                Join
+                <i class="material-icons right">launch</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
