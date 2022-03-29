@@ -8,7 +8,7 @@ const {
   getUsersInRoom,
 } = require("./utils/users");
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 7000;
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 
